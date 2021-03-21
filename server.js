@@ -12,6 +12,7 @@ require('./config/database');
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
 
+
 var app = express();
 
 // view engine setup
@@ -40,7 +41,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('newerror');
 });
 
 module.exports = app;

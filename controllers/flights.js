@@ -36,3 +36,10 @@ function index(req, res) {
     })
 }
 
+function show(req, res) {
+    Flight.findById(req.params.id, function(err, movie){
+        //do whatever with flight
+    })
+}
+
+
