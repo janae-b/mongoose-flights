@@ -8,7 +8,7 @@
     <div>FlightNo </div>
     <div><%= flight.flightNo %></div>
     <div>Date: </div>
-    <div><%= flight.depart %></div>
+    <div><%= flight.departs %></div>
   
 
 </section>
@@ -17,7 +17,7 @@
 <form id="add-ticket-form" method="POST"
   action="/flights/<%= flight._id %>/tickets">
     <label>Seat</label>
-    <input name="seat" required pattern="[A-F][1-9]\d?">
+    <input name="seat" required pattern="[A-F][1-9]\d?" oninput="this.value = this.value.toUpperCase(">
   <label>Price:</label>
   <input type='number' name="price">
   </select>
