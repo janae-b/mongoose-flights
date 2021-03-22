@@ -68,11 +68,11 @@ html, body {
 }
 
 
-    10% {
+10% {
       transform: 
         translate3d(-@Distance, @Distance, 1px)           
         rotate(180deg);
-    }
+}
     15% {
       transform: 
         translate3d(-@Distance, @Distance, 1px)           

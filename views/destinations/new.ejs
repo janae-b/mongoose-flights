@@ -1,16 +1,27 @@
-<%- include('../partials/header') %>
-
-<p>Please first ensure that the Destination is not in the dropdown
-  <select>
-    <% destinations.forEach(function(d) { %>
-      <option><%= d.name %></option>
-    <% }) %>
-  </select>
+<%- include('../partials/header') %> 
+<p>Please first ensure that the Destination is not in the dropdown:
+    <select>
+        <% destinations.forEach(function(d) { %>
+            <%= destinations %> 
+            <option><%= d.destination %></option>
+      <% }) %>
+    </select>
 </p>
-<form id="add-destination-form" action="/destinations" method="POST">
-  <label>Airport:</label>
-  <input type="text" name="airport">
-  <input type="submit" value="Add Destination">
-</form>
-
+  <form id="add-destination-form" action="/destinations" method="POST">
+    <label>Destination:</label>
+    <input type="text" name="destination" oninput="this.value = this.value.toUpperCase()" maxlength="3">
+    <input type="submit" value="Add Destination" class='AD'>
+  </form>
+  <tbody>
+          <h2>Destinations:</h2>
+        <% destinations.forEach(function(d) { %>
+        <tr>
+            <td><%= d.destination %><br></td>
+                <form action="/destinations/<%= d._id%>?_method=DELETE" class='delete-form' method="POST">
+                    <button type='submit'>X</button>
+                </form>
+            </td>
+        <% }) %>
+      </tr>
+ </tbody>
 <%- include('../partials/footer') %>
