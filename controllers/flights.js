@@ -4,22 +4,17 @@ module.exports = {
     new: newFlight,
     create,
     index,
+    show
 };
 
 
-// function create(req, res) {
-//     const flight = new Flight(req.body)
-//     flight.save(function(err) {
-//         if (err) return res.render('flights/new')
-//         console.log(flight)
-//         res.redirect('/flights/')
-//     })
-// }
-
 function create(req, res) {
-    Flight.create(req.body, function() {
-        res.redirect('/flights');
-    })
+    const flight = new Flight(req.body);
+    flight.save(function(err) {
+        if (err) return res.render('flights/new');
+        console.log(flight);
+        res.redirect('/flights')
+    });
 }
 
 function newFlight(req, res) {
@@ -32,13 +27,16 @@ function index(req, res) {
     res.render('flights/index', {
         flights: flights,
         title: 'All Flights'
-    })
+        })
     })
 }
 
 function show(req, res) {
-    Flight.findById(req.params.id, function(err, movie){
-        //do whatever with flight
+    Flight.findById(req.params.id, function(err, flight){
+        res.render('flights/show', {
+            title: 'Flight Detail',
+            flight
+        })
     })
 }
 

@@ -4,7 +4,7 @@ const flightsCtrl = require('../controllers/flights')
 
 // Get /flights/new
 router.get('/new', flightsCtrl.new)
-// Post /flights
+router.get('/:id', flightsCtrl.show)
 router.post('/', flightsCtrl.create)
 router.get('/', flightsCtrl.index)
 

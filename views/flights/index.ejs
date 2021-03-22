@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-    <table>
+    <table id='list'>
     <thead>
       <tr>
         <th>Airline</th>
@@ -10,15 +10,16 @@
       </tr>
     </thead>
     <tbody>
-      <% flights.forEach(f => { %>
+      <% flights.forEach((f) => { %>
         <tr>
         <td><%= f.airline %></td>
         <td><%= f.airport %></td>
         <td><%= f.flightNo %></td>
         <td><%= f.depart %></td>
+        <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
         </tr>
       <% }) %>
     </tbody>
   </table>
-  
+
   <%- include('../partials/footer') %>
