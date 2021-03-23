@@ -8,7 +8,7 @@
     <div>FlightNo </div>
     <div><%= flight.flightNo %></div>
     <div>Date: </div>
-    <div><%= flight.departs %></div>
+    <div><%= flight.depart %></div>
     <div>Destination: </div><br>
   <%- flight.destination.map((d) => 
     `${d.destination}`
@@ -27,9 +27,15 @@
 <form id="add-ticket-form" method="POST"
   action="/flights/<%= flight._id %>/tickets">
     <label>Seat</label>
-    <input name="seat" required pattern="[A-F][1-9]\d?" oninput="this.value = this.value.toUpperCase()">
+    <input name="seat" 
+    required pattern="[A-F][1-9]\d?" 
+    oninput="this.value = this.value.toUpperCase()"
+    placeholder = 'A10'
+    maxlength="3">
   <label>Price:</label>
-  <input type='number' name="price">
+  <input type='number' 
+  name="price"
+  placeholder="$00.00">
   </select>
   <input type="submit" value="Add Ticket">
 </form>
