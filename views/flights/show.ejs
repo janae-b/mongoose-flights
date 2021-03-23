@@ -9,7 +9,19 @@
     <div><%= flight.flightNo %></div>
     <div>Date: </div>
     <div><%= flight.departs %></div>
-
+    <div>Destination: </div><br>
+  <%- flight.destination.map((d) => 
+    `${d.destination}`
+  ) %>
+<form id="add-airport-to-dest" action="/flights/<%= flight._id %>/destinations" method="POST">
+  <select name="destinationId">
+    <%- destination.map(d => 
+      `<option value="${d._id}">${d.destination}</option>`
+    ) %>
+  </select>
+  <button type="submit">Add Destination</button>
+</form><br>
+</section>
   
   <br><br><h2>Tickets</h2>
 <form id="add-ticket-form" method="POST"
