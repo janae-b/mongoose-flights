@@ -17,6 +17,7 @@ function newDestination(req, res) {
 }
 
 function create(req, res) {
+    console.log(req.body)
     Destination.create(req.body, function(err, destinations){
         res.redirect('/destinations/new')
 })
